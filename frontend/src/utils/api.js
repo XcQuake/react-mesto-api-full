@@ -2,7 +2,6 @@ class Api {
   constructor({baseUrl, headers}) {
     this._link = baseUrl;
     this._headers = headers;
-    this._token = headers.authorization;
   }
 
   _processResult(res) {
@@ -83,9 +82,8 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-34',
+  baseUrl: 'https://api.xcqfront.nomoredomains.work',
   headers: {
-    authorization: 'cdf51df7-343c-4e9d-927b-02e53e8e2930',
     'Content-Type': 'application/json'
   }
 })
