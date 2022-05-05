@@ -8,6 +8,7 @@ const { errors } = require('celebrate');
 const { errorHandler } = require('./middlewares/errorHandler');
 const router = require('./routes/index');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const corsProcess = require('./middlewares/corsProcess');
 
 const { PORT = 3000 } = process.env;
 
@@ -27,6 +28,7 @@ app.use(helmet());
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(corsProcess);
 
 app.use(requestLogger);
 app.use(router);
