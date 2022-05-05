@@ -15,7 +15,7 @@ node_modules
 .vscode
 
 # production
-/build
+/frontend/build
 
 # misc
 .DS_Store
