@@ -1,0 +1,9 @@
+.card__description {
+  height: 79px;
+  box-sizing: border-box;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 21px 31px;
+  align-items: center;
+}

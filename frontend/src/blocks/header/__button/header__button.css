@@ -1,0 +1,18 @@
+.header__button {
+  position: relative;
+  display: none;
+  width: 24px;
+  height: 24px;
+  background-color: #000;
+  border: none;
+}
+
+.header__button:hover {
+  opacity: .6;
+}
+
+@media (max-width: 725px) {
+  .header__button {
+    display: block;
+  }
+}

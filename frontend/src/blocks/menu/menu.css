@@ -1,0 +1,6 @@
+.menu {
+  display: none;
+  text-align: center;
+  border-bottom: 1px solid rgba(84,84,84, 0.7);
+  padding: 40px;
+}

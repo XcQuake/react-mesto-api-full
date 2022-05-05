@@ -1,0 +1,9 @@
+.menu_opened {
+  display: block;
+}
+
+@media (min-width: 726px) {
+  .menu_opened {
+    display: none;
+  }
+}

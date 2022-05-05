@@ -1,0 +1,13 @@
+.header__button_hamburger {
+  border-top: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+}
+
+.header__button_hamburger::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 0px;
+  width: 100%;
+  border-top: 3px solid #fff;
+}

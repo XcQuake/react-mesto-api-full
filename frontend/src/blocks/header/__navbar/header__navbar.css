@@ -1,0 +1,4 @@
+.header__navbar {
+  display: flex;
+  align-items: flex-start;
+}
