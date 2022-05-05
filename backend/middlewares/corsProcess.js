@@ -1,6 +1,7 @@
 const allowedCors = [
   'http://xcqfront.nomoredomains.xyz',
   'https://xcqfront.nomoredomains.xyz',
+  'http://localhost:3000',
 ];
 
 module.exports = (req, res, next) => {
