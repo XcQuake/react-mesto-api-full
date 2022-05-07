@@ -49,6 +49,7 @@ module.exports.deleteCard = (req, res, next) => {
 module.exports.likeCard = (req, res, next) => {
   Card.findByIdAndUpdate(req.params.cardId, { $addToSet: { likes: req.user._id } }, { new: true })
     .orFail(() => { throw new NotFoundError('Передан несуществующий _id карточки.'); })
+    .populate(['owner', 'likes'])
     .then((card) => res.send(card))
     .catch((err) => {
       if (err.name === 'CastError') {
@@ -62,6 +63,7 @@ module.exports.likeCard = (req, res, next) => {
 module.exports.dislikeCard = (req, res, next) => {
   Card.findByIdAndUpdate(req.params.cardId, { $pull: { likes: req.user._id } }, { new: true })
     .orFail(() => { throw new NotFoundError('Передан несуществующий _id карточки.'); })
+    .populate(['owner', 'likes'])
     .then((card) => res.send(card))
     .catch((err) => {
       if (err.name === 'CastError') {
