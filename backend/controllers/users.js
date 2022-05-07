@@ -18,15 +18,19 @@ module.exports.login = (req, res, next) => {
         .cookie('jwt', token, {
           maxAge: 3600000 * 24 * 7,
           httpOnly: true,
-          sameSIte: true,
+          sameSite: 'none',
+          secure: true,
         })
-        .send({ message: 'Авторизация прошла успешно' });
+        .send({ message: 'Успешный вход в систему' });
     })
     .catch(next);
 };
 
 module.exports.logout = (req, res) => {
-  res.clearCookie('jwt').send({ message: 'Успешный выход из системы' });
+  res.clearCookie('jwt', {
+    sameSite: 'none',
+    secure: true,
+  }).send({ message: 'Успешный выход из системы' });
 };
 
 module.exports.createUser = (req, res, next) => {
