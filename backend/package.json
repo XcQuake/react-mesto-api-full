@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/XcQuake/express-mesto-gha/issues"
   },
-  "homepage": "https://github.com/XcQuake/express-mesto-gha#readme",
+  "homepage": "https://github.com/XcQuake/react-mesto-api-full/tree/main/backend",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.0",
