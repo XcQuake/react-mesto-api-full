@@ -5,11 +5,7 @@ export default function InfoTooltip({isOpen, onClose, isAuthSuccess, successText
   );
   
   function handleClose() {
-    if (isAuthSuccess) {
-      onClose();
-    } else {
-      onClose();
-    }
+    onClose();
   };
 
   return (

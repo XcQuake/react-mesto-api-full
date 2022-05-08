@@ -83,34 +83,27 @@ function App() {
         setEmail('');
         history.push('/sign-in');
       })
+      .catch((err) => console.log(err))
   }
 
   function handleLogin(email, password) {
     auth.authorize(email, password)
-      .then((data) => {
-        if (data) {
-          localStorage.setItem('isLoggedIn', true)
-          setEmail(email);
-          setIsLoggedIn(true);
-          history.push('/sign-in');
-        } else {
-          handleOpenTooltip(false);
-        }
+      .then(() => {
+        localStorage.setItem('isLoggedIn', true);
+        setEmail(email);
+        setIsLoggedIn(true);
+        history.push('/sign-in');
       })
-      .catch(err => console.log(err))
+      .catch(() => handleOpenTooltip(false));
   }
 
   function handleRegister(email, password) {
     auth.register(email, password)
-      .then((res) => {
-        if (res.data) {
-          handleOpenTooltip(true);
-          history.push('/sign-in')
-        } else {
-          handleOpenTooltip(false);
-        }
+      .then(() => {
+        handleOpenTooltip(true);
+        history.push('/sign-in')
       })
-      .catch(err => console.log(err))
+      .catch(() => handleOpenTooltip(false));
   }
 
   function handleTokenCheck() {
