@@ -31,7 +31,8 @@
 ## Ссылки
 
 **Фронтенд:** https://xcqfront.nomoredomains.xyz/  
-**Api:** https://api.xcqfront.nomoredomains.work/
+**Api:** https://api.xcqfront.nomoredomains.work/  
+**Публичный IP-адрес:** 51.250.104.125
 
 ## Инструкция по установке:
 
