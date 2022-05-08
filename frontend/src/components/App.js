@@ -42,13 +42,12 @@ function App() {
   useEffect(() => {
     if (isLoggedIn) {
       api.getFullData()
-      .then(([user, cards]) => {
-        setCurrentUser(user);
-        setCards(cards);
-      })
-      .catch(err => console.log(err));
+        .then(([user, cards]) => {
+          setCurrentUser(user);
+          setCards(cards);
+        })
+        .catch(err => console.log(err));
     }
-    
     handleTokenCheck();
   }, [isLoggedIn]);
 
@@ -77,16 +76,20 @@ function App() {
   }
 
   function handleLogout() {
-    setIsLoggedIn(false);
-    setEmail('');
-    localStorage.removeItem('jwt');
-    history.push('/sign-in');
+    auth.logout()
+      .then(() => {
+        localStorage.removeItem('isLoggedIn');
+        setIsLoggedIn(false);
+        setEmail('');
+        history.push('/sign-in');
+      })
   }
 
   function handleLogin(email, password) {
     auth.authorize(email, password)
       .then((data) => {
         if (data) {
+          localStorage.setItem('isLoggedIn', true)
           setEmail(email);
           setIsLoggedIn(true);
           history.push('/sign-in');
@@ -111,15 +114,12 @@ function App() {
   }
 
   function handleTokenCheck() {
-    if (localStorage.getItem('jwt')){
-      const jwt = localStorage.getItem('jwt');
-      auth.checkToken(jwt)
-        .then((data) => {
-          if(data.email){
-            setEmail(data.email);
-            setIsLoggedIn(true);
-            history.push('/')
-          }
+    if (localStorage.getItem('isLoggedIn')) {
+      auth.checkToken()
+        .then((user) => {
+          setEmail(user.email);
+          setIsLoggedIn(true);
+          history.push('/');
         })
         .catch(err => console.log(err))
     }

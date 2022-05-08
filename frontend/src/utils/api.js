@@ -2,6 +2,7 @@ class Api {
   constructor({baseUrl, headers}) {
     this._link = baseUrl;
     this._headers = headers;
+    this._token = headers.authorization;
   }
 
   _processResult(res) {
@@ -11,6 +12,7 @@ class Api {
   
   getUserInfo() {
     return fetch(`${this._link}/users/me`, {
+      credentials: 'include',
       method: 'GET', 
       headers: this._headers
     })
@@ -19,6 +21,7 @@ class Api {
 
   setUserInfo({name, about}) {
     return fetch(`${this._link}/users/me`, {
+      credentials: 'include',
       method: 'PATCH', 
       headers: this._headers, 
       body: JSON.stringify({
@@ -31,10 +34,11 @@ class Api {
 
   getInitialCards() {
     return fetch(`${this._link}/cards`, {
+      credentials: 'include',
       method: 'GET', 
       headers: this._headers
     })
-      .then(res => this._processResult(res)) 
+      .then(res => this._processResult(res))
   }
 
   getFullData() {
@@ -43,6 +47,7 @@ class Api {
 
   setUserAvatar(item) {
     return fetch(`${this._link}/users/me/avatar`, {
+      credentials: 'include',
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
@@ -54,6 +59,7 @@ class Api {
 
   addCard(item) {
     return fetch(`${this._link}/cards`, {
+      credentials: 'include',
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
@@ -66,6 +72,7 @@ class Api {
 
   changeLikeCardStatus(cardId, isLiked) {
     return fetch(`${this._link}/cards/${cardId}/likes`, {
+      credentials: 'include',
       method: `${isLiked ? 'PUT' : 'DELETE'}`,
       headers: this._headers
     })
@@ -74,6 +81,7 @@ class Api {
 
   deleteCard(cardId) {
     return fetch(`${this._link}/cards/${cardId}`, {
+      credentials: 'include',
       method: 'DELETE',
       headers: this._headers
     })
@@ -84,7 +92,7 @@ class Api {
 const api = new Api({
   baseUrl: 'https://api.xcqfront.nomoredomains.work',
   headers: {
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
   }
 })
 
