@@ -23,7 +23,7 @@ module.exports.login = (req, res, next) => {
         .cookie('jwt', token, {
           maxAge: 3600000 * 24 * 7,
           httpOnly: true,
-          sameSite: 'none',
+          sameSite: 'none', // Api и front находятся на разных доменах
           secure: true,
         })
         .send({ message: 'Успешный вход в систему' });
