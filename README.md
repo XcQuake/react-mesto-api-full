@@ -32,7 +32,11 @@
 
 **Фронтенд:** https://xcqfront.nomoredomains.xyz/  
 **Api:** https://api.xcqfront.nomoredomains.work/  
-**Публичный IP-адрес:** 51.250.104.125
+**Публичный IP-адрес:** 51.250.104.125  
+        
+**Демонстрационный аккаунт:**   
+email: test@mail.com    
+password: qwerty123     
 
 ## Инструкция по установке:
 
